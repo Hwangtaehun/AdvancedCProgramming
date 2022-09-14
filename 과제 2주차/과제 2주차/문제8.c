@@ -8,30 +8,38 @@ int main()
 	char op;
 	float sum = 0.0;
 
-	printf("숫자와 사직연산을 입력해주세요. 예시: 10 + 3\n");
-	scanf("%d %c %d", &x, &op, &y);
-
-	switch (op)
+	while (1)
 	{
-	case '+':
-		sum = x + y;
-		break;
-	case '-':
-		sum = x - y;
-		break;
-	case '*':
-		sum = x * y;
-		break;
-	case '/':
-		a = x, b = y;
-		sum = a / b;
-		break;
-	case '%':
-		sum = x % y;
-		break;
-	default:
-		break;
+		printf("숫자와 사칙연산 기호와 나머지 기호를 입력해주세요. 예시: 10 + 3\n");
+		scanf("%d %c %d", &x, &op, &y);
+
+		switch (op)
+		{
+		case '+':
+			sum = x + y;
+			break;
+		case '-':
+			sum = x - y;
+			break;
+		case '*':
+			sum = x * y;
+			break;
+		case '/':
+			a = x, b = y;
+			sum = a / b;
+			break;
+		case '%':
+			sum = x % y;
+			break;
+		default:
+			printf("사용할 수 없는 기호입니다. 다시 입력해주세요.\n");
+			break;
+		}
+		if (op == '+' || op == '-' || op == '*' || op == '/' || op == '%')
+		{
+			printf("%d %c %d = %.1f\n", x, op, y, sum);
+			break;
+		}
 	}
-	printf("%d %c %d = %.1f", x, op, y, sum);
 	return 0;
 }
