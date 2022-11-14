@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     }
     const int nReads = 16;
     char data[nReads];
-    char mem[256];
+    char mem[256]; //출력할거랑 출력 안할거랑 구분
     char disMem[nReads + 1];
 
     memset(mem, '.', 256);
@@ -30,12 +30,12 @@ int main(int argc, char* argv[])
     {
         if (isprint(ch))
             mem[ch] = ch;
-    }
+    } //아스키코드 printable char 확인 
 
     size_t offset = 0;
-    while (!fin.eof())
+    while (!fin.eof()) // '\0'가 나올때 까지
     {
-        fin.read(data, nReads);
+        fin.read(data, nReads); //성공적으로 읽은 함수가 몇개 인가?
         auto len = fin.gcount();
         
         memset(disMem, ' ', nReads);
@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
             disMem[i] = mem[data[i] & 0xff];
         }
         disMem[nReads] = NULL;
-        cout << disMem << endl;
+        cout << disMem << endl; //실제 내용을 보여줌
         offset += fin.gcount();
     }
     fin.close();
