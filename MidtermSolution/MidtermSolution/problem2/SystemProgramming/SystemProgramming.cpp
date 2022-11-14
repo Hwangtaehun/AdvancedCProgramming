@@ -12,7 +12,7 @@ unsigned long long readLonglong(ifstream& fin)
     unsigned long long value = 0;
     fin.read((char *) &value, sizeof(size_t));
     return value;
-}
+} //64비트 기준
 
 
 string readString(ifstream& fin, bool decode = false)
@@ -21,7 +21,7 @@ string readString(ifstream& fin, bool decode = false)
     char* buf = new char[len + 1];
 
     fin.read((char*)buf, sizeof(char) * len);
-    buf[len] = NULL;
+    buf[len] = NULL; //문자열 기본적인 부분을 충족 시킴
 
     string input = buf;
     delete[] buf;
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     }
     ifstream fin(argv[1], ios::in | ios::binary);
 
-    fin.seekg(0, ios::end);
+    fin.seekg(0, ios::end); //파일크기를 알기 위해서 설정
     auto endPos = fin.tellg();
     fin.seekg(0, ios::beg);
     auto pos = fin.tellg();

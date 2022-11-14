@@ -32,7 +32,7 @@ namespace macaron {
 class Base64 {
  public:
 
-  static std::string Encode(const std::string data) {
+  static std::string Encode(const std::string& data) {
     static constexpr char sEncodingTable[] = {
       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
       'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -51,7 +51,8 @@ class Base64 {
     char *p = const_cast<char*>(ret.c_str());
 
     for (i = 0; i < in_len - 2; i += 3) {
-      *p++ = sEncodingTable[(data[i] >> 2) & 0x3F];
+      *p = sEncodingTable[(data[i] >> 2) & 0x3F];
+      p++;
       *p++ = sEncodingTable[((data[i] & 0x3) << 4) | ((int) (data[i + 1] & 0xF0) >> 4)];
       *p++ = sEncodingTable[((data[i + 1] & 0xF) << 2) | ((int) (data[i + 2] & 0xC0) >> 6)];
       *p++ = sEncodingTable[data[i + 2] & 0x3F];
@@ -96,8 +97,10 @@ class Base64 {
     if (in_len % 4 != 0) return "Input data size is not a multiple of 4";
 
     size_t out_len = in_len / 4 * 3;
-    if (input[in_len - 1] == '=') out_len--;
-    if (input[in_len - 2] == '=') out_len--;
+    if (input[in_len - 1] == '=') 
+        out_len--;
+    if (input[in_len - 2] == '=') 
+        out_len--;
 
     out.resize(out_len);
 
