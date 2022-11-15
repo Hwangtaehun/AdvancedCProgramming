@@ -16,13 +16,13 @@
 
 이벤트 화면
 
-void openscreen(int map[size_x][size_y], int* score);
-void mapbase(int map[size_x][size_y]);
-void mapping(int map[size_x][size_y], int* score);
-void jump(int map[size_x][size_y], int* score, int cot);
-void obstaclemaker(int map[size_x][size_y]);
-void obstaclemove(int map[size_x][size_y], int* speed, int* score, int* otime);
-int gameover(int map[size_x][size_y], int* score);
+void openscreen(int map[size_y][size_x], int* score);
+void mapbase(int map[size_y][size_x]);
+void mapping(int map[size_y][size_x], int* score);
+void jump(int map[size_y][size_x], int* score, int a);
+void obstaclemaker(int map[size_y][size_x]);
+void obstaclemove(int map[size_y][size_x], int* speed, int* score, int* otime);
+int gameover(int map[size_y][size_x], int* score);
 void Score(int* speed, int* score, int* otime);
-int endscreen(int map[size_x][size_y], int* speed, int* score, int* otime);
+int endscreen(int map[size_y][size_x], int* speed, int* score, int* otime);
 int eventscreen();

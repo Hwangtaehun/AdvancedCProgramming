@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{24eca54c-39d9-49d0-afc3-ac16ea14503e}</ProjectGuid>
-    <RootNamespace>점프게임</RootNamespace>
+    <ProjectGuid>{9f61923f-9c10-4c57-bb3e-d97ad28a3510}</ProjectGuid>
+    <RootNamespace>행렬</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,17 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EndScreen.c" />
-    <ClCompile Include="Game.c" />
-    <ClCompile Include="Main.c" />
-    <ClCompile Include="Map.c" />
-    <ClCompile Include="OpenScreen.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="EndScreen.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="OpenScreen.h" />
+    <ClCompile Include="test.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
