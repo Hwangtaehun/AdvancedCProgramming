@@ -58,18 +58,27 @@ void rankinput(int score, int time)
 	hd = _open("Rank.dat", O_RDWR | O_BINARY);
 	if (hd == -1)
 		printf("Rank.dat를 열 수 없습니다.\n");
+	_read(hd, (void*)&rank, DATA_SIZE * 5L);
+	print(rank);
 
-	system("cls");
-	printf("\n\t\t 기록을 달성했습니다.\n\n\t       You score : %d\n\n", score / 2); //5
-	printf("\n\t\t 이름을 입력해주세요.\n\n");
-	scanf("%s", &user.name);
-	user.score = score;
-	user.time = time;
+	//system("cls");
+	//printf("\n\t\t 기록을 달성했습니다.\n\n\t       You score : %d\n\n", score / 2); //5
+	//printf("\n\t\t 이름을 입력해주세요.\n\n");
+	//scanf("%s", &user.name);
+	//user.score = score;
+	//user.time = time;
 }
 
 void rankscreen()
 {
+	int hd;
+	RANK rank[5];
 
+	hd = _open("Rank.dat", O_RDWR | O_BINARY);
+	if (hd == -1)
+		printf("Rank.dat를 열 수 없습니다.\n");
+	_read(hd, (void*)&rank, DATA_SIZE * 5L);
+	print(rank);
 }
 
 void print(RANK arr[])
