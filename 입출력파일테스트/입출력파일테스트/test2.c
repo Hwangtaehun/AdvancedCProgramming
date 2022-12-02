@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc.h>
 
 #define ARR_SIZE 5
 #define DATA_SIZE (sizeof(RANK))
@@ -22,7 +23,7 @@ int main()
 	int score = 20;
 	int otime = 70;
 
-	rankinput(&score, &otime);
+	//rankinput(&score, &otime);
 
 	rankscreen();
 
@@ -31,8 +32,14 @@ int main()
 
 int rankscreen()
 {
-	RANK rank[ARR_SIZE];
+	RANK* rank;
 	FILE* inf;
+	if (rank = (RANK*)malloc(sizeof(RANK)*ARR_SIZE) == NULL)
+	{
+		printf("memory가 모자라네요. \n");
+		exit(-1);
+	}
+
 	if ((fopen_s(&inf, "Rank.txt", "rb")) != 0)
 	{
 		printf("파일 오픈 실패\n");
@@ -42,12 +49,14 @@ int rankscreen()
 
 	for (int i = 0; i < ARR_SIZE; i++)
 	{
-		fscanf(inf, "%s %d %d\n", rank[i].name, &rank[i].rscore, &rank[i].time);
+		fscanf(inf, "%s %d %d\n", ((rank + i)->name), &((rank + i)->rscore), &((rank + i)->time));
 	}
 
 	fclose(inf);
 
 	print(rank);
+
+	free(rank);
 
 	return 0;
 }
@@ -57,6 +66,7 @@ void rankinput(int *score, int *otime)
 	RANK user;
 	RANK rank[ARR_SIZE];
 	FILE* inf;
+
 	if ((fopen_s(&inf, "Rank.txt", "rb")) != 0)
 	{
 		printf("파일 오픈 실패\n");
@@ -78,11 +88,11 @@ void rankinput(int *score, int *otime)
 	user.rscore = *score;
 	user.time = *otime;
 
-	if (rank[ARR_SIZE - 1].rscore <= user.rscore)
+	if (rank[ARR_SIZE - 1].time > user.time || rank[ARR_SIZE - 1].time == 0)
 	{
-		if (rank[ARR_SIZE - 1].time > user.time || rank[ARR_SIZE -1].time == 0)
+		if (rank[ARR_SIZE - 1].rscore <= user.rscore)
 		{
-			rank[4] = user;
+			rank[ARR_SIZE - 1] = user;
 		}
 	}
 	sort(rank);

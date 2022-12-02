@@ -1,3 +1,0 @@
-﻿  multthread.cpp
-C:\Users\B407_05\source\repos\12월02일\multthread.cpp(28,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-  12월02일.vcxproj -> C:\Users\B407_05\source\repos\12월02일\Debug\12월02일.exe
