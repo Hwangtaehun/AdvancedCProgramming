@@ -1,0 +1,29 @@
+
+	RANK* rank;
+	FILE* inf;
+	if (rank = (RANK*)malloc(sizeof(RANK)*ARR_SIZE) == NULL)
+	{
+		printf("memory가 모자라네요. \n");
+		exit(-1);
+	}
+
+	if ((fopen_s(&inf, "Rank.txt", "rb")) != 0)
+	{
+		printf("파일 오픈 실패\n");
+		exit(0);
+	}
+
+
+	for (int i = 0; i < ARR_SIZE; i++)
+	{
+		fscanf(inf, "%s %d %d\n", ((rank + i)->name), &((rank + i)->rscore), &((rank + i)->time));
+	}
+
+	fclose(inf);
+
+	print(rank);
+
+	free(rank);
+
+	return 0;
+}
