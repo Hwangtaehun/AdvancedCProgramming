@@ -60,7 +60,7 @@ void mapping(int map[size_y][size_x], int* score, double* timer)
 		printf("\n");
 	}
 
-	if (*score >= 1000)
+	if (*score >= 100)
 	{
 		printf("брбрбрбрбрбрбрбрбрбрбрбрбрбрбрбрбр\n");
 		printf("бр  брбрбр              брбрбр  бр\n");
@@ -69,7 +69,7 @@ void mapping(int map[size_y][size_x], int* score, double* timer)
 		printf("бр         бр        бр         бр\n");
 		printf("бр      брбрбр      брбрбр      бр\n");
 	}
-	if (*score >= 2000)
+	if (*score >= 200)
 	{
 		printf("бр     бр    бр    бр    бр     бр\n");
 		printf("бр     бр     брбрбр     бр     бр\n");
@@ -78,7 +78,7 @@ void mapping(int map[size_y][size_x], int* score, double* timer)
 		printf("бр                              бр\n");
 		printf("бр  брбрбр              брбрбр  бр\n");
 	}
-	if (*score >= 3000)
+	if (*score >= 300)
 	{
 		printf("бр бр    брбрбрбрбрбрбрбр    бр бр\n");
 		printf("бр бр                        бр бр\n");
@@ -162,13 +162,4 @@ int rankscreen(int map[size_y][size_x], int* score, double* timer)
 	mapbase(map);
 	mapping(map, score, timer);
 	return 1;
-}
-
-void print(RANK arr[])/*╗ш┴ж*/
-{
-	for (int i = 0; i < ARR_SIZE; i++)
-	{
-		printf("%s, %d, %d\n", arr->name, arr->score, arr->time);
-		arr++;
-	}
 }
