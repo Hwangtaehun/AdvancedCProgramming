@@ -1,0 +1,35 @@
+'Map.h'
+해더파일 + 기호상수 + 랭킹관련 구조체
+
+'OpenScreen.c' + 'Map.h'
+시작 화면(openscreen)-> map[i][j], score
+
+'Map.c'
+맵베이스(mapbase) ->map[i][j]
+맵핑(mapping) ->map[i][j], score
+랭킹화면
+
+'Game.c' + 'Map.h'
+장매물 무빙(obstaclemove)->map[i][j], speed, score, otime
+장애물(obstaclemaker)->map[i][j]
+점프(jump)->map[i][j]
+장매물에 맞았을 때(gameover)->map[i][j], 맵
+몇 점 이상 올라가면 스피드 증가(score)->speed, score, otime
+
+'EndScreen.c' + 'Map.h'
+끝나는 화면(endscreen)->'speed, score, otime' + map[i][j], score
+이벤트 화면
+랭킹입력화면
+랭킹 정렬
+
+'사용된 함수'
+void openscreen(int map[size_y][size_x], int* score);
+void mapbase(int map[size_y][size_x]);
+void mapping(int map[size_y][size_x], int* score);
+void jump(int map[size_y][size_x], int* score, int a);
+void obstaclemaker(int map[size_y][size_x]);
+void obstaclemove(int map[size_y][size_x], int* speed, int* score, int* otime);
+int gameover(int map[size_y][size_x], int* score);
+void Score(int* speed, int* score, int* otime);
+int endscreen(int map[size_y][size_x], int* speed, int* score, int* otime);
+int eventscreen();
